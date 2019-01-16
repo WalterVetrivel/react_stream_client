@@ -1,0 +1,12 @@
+@import url('https://fonts.googleapis.com/css?family=Sarabun:400,700,800');
+@import './variables';
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Sarabun', sans-serif;
+    color: $color-5;
+}

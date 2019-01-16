@@ -1,0 +1,30 @@
+@import '../../variables';
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    padding: .5rem 2rem;
+    background-color: $color-1;
+    align-items: center;
+    &__logo {
+        a {
+            text-decoration: none;
+            color: darken($color-2, 30%);
+            font-weight: 800;
+            font-size: 1.25rem;
+        }
+    }
+    &__nav {
+        list-style: none;
+        display: flex;
+    }
+    &__item {
+        padding: .5rem;
+        &:not(:last-of-type) {
+            margin-right: .5rem;
+        }
+    }
+    &__link {
+        text-decoration: none;
+        color: $color-4;
+    }
+}
