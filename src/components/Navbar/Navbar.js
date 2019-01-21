@@ -1,5 +1,6 @@
 import React from 'react';
 import {NavLink} from 'react-router-dom';
+import GoogleAuth from '../GoogleAuth/GoogleAuth';
 
 import classes from './Navbar.module.scss';
 
@@ -15,9 +16,7 @@ const navbar = () => (
 				</NavLink>
 			</li>
 			<li className={classes['navbar__item']}>
-				<NavLink className={classes['navbar__link']} to="/login">
-					Login
-				</NavLink>
+				<GoogleAuth className={classes['navbar__link']} />
 			</li>
 		</ul>
 	</nav>

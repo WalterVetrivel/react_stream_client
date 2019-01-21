@@ -2,13 +2,16 @@
 .navbar {
     display: flex;
     justify-content: space-between;
-    padding: .5rem 2rem;
-    background-color: $color-1;
+    padding: 1rem 2rem;
+    background-color: $color-white;
+    box-shadow: $box-shadow-1;
     align-items: center;
+    border-bottom: 3px solid $color-4;
+    margin-bottom: 1rem;
     &__logo {
         a {
             text-decoration: none;
-            color: darken($color-2, 30%);
+            color: $color-4;
             font-weight: 800;
             font-size: 1.25rem;
         }
@@ -16,6 +19,7 @@
     &__nav {
         list-style: none;
         display: flex;
+        align-items: center;
     }
     &__item {
         padding: .5rem;
@@ -24,6 +28,12 @@
         }
     }
     &__link {
+        border: 0;
+        outline: none;
+        font-family: inherit;
+        font-size: inherit;
+        background-color: transparent;
+        cursor: pointer;
         text-decoration: none;
         color: $color-4;
     }

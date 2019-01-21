@@ -1,1 +1,72 @@
 @import '../../variables';
+.stream-list {
+    position: relative;
+    width: 90%;
+    margin: 0 auto;
+    &__header {
+        padding: 0.5rem 0;
+        margin-bottom: 1rem;
+        border-bottom: 1px solid $color-3;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        & a {
+            text-decoration: none;
+            padding: 0.5rem;
+            color: $color-white;
+            background-color: $color-4;
+            border-radius: $button-border-radius;
+            transition: all 0.3s ease-in-out;
+        }
+        & a:hover {
+            box-shadow: $box-shadow-1;
+            background-color: lighten($color-4, 5%);
+        }
+    }
+    &__title {
+        color: $color-4;
+    }
+}
+
+.create-fab {
+    position: fixed;
+    right: 0.5%;
+    bottom: 2%;
+    background: transparent;
+    & a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        width: 3rem;
+        height: 3rem;
+        text-decoration: none;
+        color: $color-white;
+        background-color: $color-4;
+        border-radius: 50%;
+        font-size: 2rem;
+        transition: all 0.3s ease-in-out;
+        &:hover {
+            box-shadow: $box-shadow-1;
+            background-color: lighten($color-4, 5%);
+        }
+    }
+}
+
+.error {
+    padding: 1rem;
+    margin-bottom: 1rem;
+    background-color: lighten($color-1, 30%);
+    text-align: center;
+    color: $color-1;
+    border-radius: $div-border-radius;
+}
+
+.success {
+    padding: 1rem;
+    margin-bottom: 1rem;
+    background-color: lighten($color-6, 30%);
+    text-align: center;
+    color: $color-6;
+    border-radius: $div-border-radius;
+}

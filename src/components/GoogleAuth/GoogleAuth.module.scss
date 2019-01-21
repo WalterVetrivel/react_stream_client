@@ -1,0 +1,18 @@
+@import '../../variables';
+.auth-button {
+    background-color: #4885ed;
+    color: #fff;
+    font: inherit;
+    border: 0;
+    outline: none;
+    cursor: pointer;
+    border-radius: $button-border-radius;
+    padding: 0.5rem;
+    i {
+        margin-right: 0.5rem;
+    }
+    &:hover {
+        box-shadow: $box-shadow-1;
+        background-color: lighten($color-4, 5%);
+    }
+}
