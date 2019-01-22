@@ -10,15 +10,17 @@ const stream = props => (
 		<div className={classes['stream__details']}>
 			<div className={classes['stream__header']}>
 				<h3 className={classes['stream__title']}>
-					<Link to="streams/show">{props.title}</Link>
+					<Link to={`streams/show/${props.id}`}>{props.title}</Link>
 				</h3>
 				{props.showControls ? (
 					<div className={classes['stream__controls']}>
-						<Link to="streams/edit">
-							<i className="fas fa-edit" />Edit
+						<Link to={`streams/edit/${props.id}`}>
+							<i className="fas fa-edit" />
+							Edit
 						</Link>
-						<Link to="streams/delete">
-							<i className="fas fa-trash-alt" />Delete
+						<Link to={`streams/delete/${props.id}`}>
+							<i className="fas fa-trash-alt" />
+							Delete
 						</Link>
 					</div>
 				) : null}

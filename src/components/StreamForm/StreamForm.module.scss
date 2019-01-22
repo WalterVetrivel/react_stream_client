@@ -1,0 +1,66 @@
+@import '../../variables';
+.form {
+    margin: 0 auto;
+    width: 95%;
+    padding: 1rem;
+    border-radius: $div-border-radius;
+    box-shadow: $box-shadow-2;
+    background-color: $color-white;
+    border-left: 4px solid $color-4;
+    @media (min-width: 768px) {
+        & {
+            width: 70%;
+        }
+    }
+    @media (min-width: 992px) {
+        & {
+            width: 50%;
+        }
+    }
+}
+
+.field {
+    padding: 0.5rem 0;
+    .label {
+        display: block;
+        font-weight: 700;
+        color: $color-4;
+        margin-bottom: 0.5rem;
+    }
+    .input {
+        border: 0;
+        padding: 0.5rem;
+        display: block;
+        width: 100%;
+        outline: none;
+        font: inherit;
+        border-radius: $input-border-radius;
+        background-color: $color-3;
+        transition: all 0.3s ease-in-out;
+        color: $color-5;
+        &:focus {
+            box-shadow: $box-shadow-1;
+            background-color: lighten($color-3, 3%);
+        }
+    }
+    .error {
+        color: $color-1;
+    }
+}
+
+.button-submit {
+    border: 0;
+    outline: none;
+    font: inherit;
+    font-weight: 700;
+    padding: 0.5rem;
+    background-color: $color-4;
+    color: $color-3;
+    border-radius: $button-border-radius;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    &:hover {
+        box-shadow: $box-shadow-1;
+        background-color: lighten($color-4, 5%);
+    }
+}

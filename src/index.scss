@@ -2,77 +2,22 @@
 @import url('https://use.fontawesome.com/releases/v5.6.3/css/all.css');
 @import './variables';
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
 }
 
 body {
-    font-family: 'Sarabun', sans-serif;
-    color: $color-5;
-    background-color: lighten($color-3, 7%);
+	font-family: 'Sarabun', sans-serif;
+	color: $color-5;
+	background-color: lighten($color-3, 7%);
 }
 
 .text-right {
-    text-align: right;
+	text-align: right;
 }
 
 .page-heading {
-    text-align: center;
-    margin-bottom: 1rem;
-}
-
-.form {
-    margin: 0 auto;
-    width: 50%;
-    padding: 1rem;
-    border-radius: $div-border-radius;
-    box-shadow: $box-shadow-2;
-    background-color: $color-white;
-}
-
-.field {
-    padding: 0.5rem 0;
-    .label {
-        display: block;
-        font-weight: 700;
-        color: $color-4;
-        margin-bottom: 0.5rem;
-    }
-    .input {
-        border: 0;
-        padding: 0.5rem;
-        display: block;
-        width: 100%;
-        outline: none;
-        font: inherit;
-        border-radius: $input-border-radius;
-        background-color: $color-3;
-        transition: all 0.3s ease-in-out;
-        color: $color-5;
-        &:focus {
-            box-shadow: $box-shadow-1;
-            background-color: lighten($color-3, 3%);
-        }
-    }
-    .error {
-        color: $color-1;
-    }
-}
-
-.button-submit {
-    border: 0;
-    outline: none;
-    font: inherit;
-    font-weight: 700;
-    padding: 0.5rem;
-    background-color: $color-4;
-    color: $color-3;
-    border-radius: $button-border-radius;
-    cursor: pointer;
-    transition: all 0.3s ease-in-out;
-    &:hover {
-        box-shadow: $box-shadow-1;
-        background-color: lighten($color-4, 5%);
-    }
+	text-align: center;
+	margin-bottom: 1rem;
 }

@@ -1,0 +1,74 @@
+@import '../../variables';
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vw;
+    background-color: rgba($color-black, 0.5);
+    z-index: 100;
+    &__body {
+        background-color: $color-white;
+        border-radius: $div-border-radius;
+        width: 95%;
+        margin: 0 auto;
+        margin-top: 10%;
+        padding: 0 1rem;
+        box-shadow: $box-shadow-2;
+        @media (min-width: 768px) {
+            width: 65%;
+        }
+        @media (min-width: 992px) {
+            width: 45%;
+        }
+    }
+    &__header {
+        padding: 1rem 0;
+        border-bottom: 1px solid $color-3;
+    }
+    &__content {
+        padding: 1rem 0;
+        border-bottom: 1px solid $color-3;
+    }
+    &__actions {
+        text-align: right;
+        padding: 1rem 0;
+    }
+    &__action {
+        border: 0;
+        outline: none;
+        padding: 0.5rem;
+        font: inherit;
+        font-weight: 700;
+        border-radius: $button-border-radius;
+        cursor: pointer;
+        transition: all .3s ease-in-out;
+        &:hover {
+            box-shadow: $box-shadow-1;
+        }
+        &:first-of-type {
+            margin-right: 0.5rem;
+        }
+        &--confirm {
+            background-color: $color-4;
+            color: $color-white;
+            &:hover {
+                background-color: lighten($color-4, 5%);
+            }
+        }
+        &--cancel {
+            background-color: $color-3;
+            color: $color-5;
+            &:hover {
+                background-color: lighten($color-3, 5%);
+            }
+        }
+        &--delete {
+            background-color: $color-1;
+            color: $color-white;
+            &:hover {
+                background-color: lighten($color-1, 5%);
+            }
+        }
+    }
+}

@@ -1,30 +1,40 @@
 import React, {Component} from 'react';
-import {BrowserRouter, Route, Switch} from 'react-router-dom';
+import {Router, Route, Switch} from 'react-router-dom';
 import StreamList from './components/StreamList/StreamList';
 import StreamCreate from './components/StreamCreate/StreamCreate';
 import StreamEdit from './components/StreamEdit/StreamEdit';
 import StreamDelete from './components/StreamDelete/StreamDelete';
 import StreamShow from './components/StreamShow/StreamShow';
+import {fetchStreams} from './store/actions/';
+import {connect} from 'react-redux';
 import Navbar from './components/Navbar/Navbar';
+import history from './history';
 import './App.scss';
 
 class App extends Component {
+	componentDidMount() {
+		this.props.fetchStreams();
+	}
+
 	render() {
 		return (
-			<BrowserRouter>
+			<Router history={history}>
 				<div className="App">
 					<Navbar />
 					<Switch>
 						<Route path="/streams/new" component={StreamCreate} />
-						<Route path="/streams/edit" component={StreamEdit} />
-						<Route path="/streams/delete" component={StreamDelete} />
-						<Route path="/streams/show" component={StreamShow} />
+						<Route path="/streams/edit/:id" component={StreamEdit} />
+						<Route path="/streams/delete/:id" component={StreamDelete} />
+						<Route path="/streams/show/:id" component={StreamShow} />
 						<Route path="/" component={StreamList} />
 					</Switch>
 				</div>
-			</BrowserRouter>
+			</Router>
 		);
 	}
 }
 
-export default App;
+export default connect(
+	null,
+	{fetchStreams}
+)(App);

@@ -1,16 +1,11 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
-import {fetchStreams} from '../../store/actions/';
 import Stream from './Stream/Stream';
 import Loading from '../Loading/Loading';
 import classes from './StreamList.module.scss';
 
 class StreamList extends Component {
-	componentDidMount() {
-		this.props.fetchStreams();
-	}
-
 	renderStreamList = () => {
 		if (this.props.streams) {
 			return this.props.streams.map(stream => (
@@ -29,7 +24,7 @@ class StreamList extends Component {
 	render() {
 		return (
 			<div className={classes['stream-list']}>
-				{this.props.loading ? <Loading>Fetching streams...</Loading> : null}
+				{this.props.loading ? <Loading>Fetching streams</Loading> : null}
 				<div className={classes['stream-list__header']}>
 					<h2 className={classes['stream-list__title']}>Streams</h2>
 					{this.props.isSignedIn ? (
@@ -66,7 +61,4 @@ const mapStateToProps = state => {
 	};
 };
 
-export default connect(
-	mapStateToProps,
-	{fetchStreams}
-)(StreamList);
+export default connect(mapStateToProps)(StreamList);

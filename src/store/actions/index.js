@@ -1,4 +1,5 @@
 import streams from '../../apis/streams';
+import history from '../../history';
 import * as actionTypes from './actionTypes';
 
 export const signIn = id => {
@@ -14,10 +15,7 @@ export const signOut = () => {
 	};
 };
 
-export const createStream = (formValues, history) => async (
-	dispatch,
-	getState
-) => {
+export const createStream = formValues => async (dispatch, getState) => {
 	try {
 		dispatch({type: actionTypes.INITIALIZE});
 		dispatch({type: actionTypes.LOADING});
@@ -62,27 +60,63 @@ export const fetchStreams = () => async dispatch => {
 
 export const fetchStream = id => async dispatch => {
 	try {
+		dispatch({type: actionTypes.LOADING});
 		const response = await streams.get(`/streams/${id}`);
 		dispatch({type: actionTypes.FETCH_STREAM, payload: response.data});
+		dispatch({type: actionTypes.STOP_LOADING});
 	} catch (err) {
-		console.log(err);
+		dispatch({
+			type: actionTypes.ERROR,
+			payload: 'Could not fetch stream. Please try later.'
+		});
+		dispatch({type: actionTypes.STOP_LOADING});
 	}
 };
 
-export const editStream = (id, formValues) => async dispatch => {
+export const editStream = (id, formValues) => async (dispatch, getState) => {
 	try {
-		const response = await streams.put(`/streams/${id}`, formValues);
+		dispatch({type: actionTypes.INITIALIZE});
+		dispatch({type: actionTypes.LOADING});
+		const response = await streams.patch(`/streams/${id}`, formValues);
 		dispatch({type: actionTypes.EDIT_STREAM, payload: response.data});
+		dispatch({
+			type: actionTypes.SUCCESS,
+			payload: 'Stream updated successfully.'
+		});
+		dispatch({type: actionTypes.STOP_LOADING});
+		setTimeout(() => dispatch({type: actionTypes.INITIALIZE}), 5000);
+		history.push('/');
 	} catch (err) {
-		console.log(err);
+		dispatch({
+			type: actionTypes.ERROR,
+			payload: 'Could not update stream. Please try later.'
+		});
+		dispatch({type: actionTypes.STOP_LOADING});
+		setTimeout(() => dispatch({type: actionTypes.INITIALIZE}), 5000);
+		history.push('/');
 	}
 };
 
 export const deleteStream = id => async dispatch => {
 	try {
+		dispatch({type: actionTypes.INITIALIZE});
+		dispatch({type: actionTypes.LOADING});
 		await streams.delete(`/streams/${id}`);
 		dispatch({type: actionTypes.DELETE_STREAM, payload: id});
+		dispatch({
+			type: actionTypes.SUCCESS,
+			payload: 'Stream deleted successfully.'
+		});
+		dispatch({type: actionTypes.STOP_LOADING});
+		setTimeout(() => dispatch({type: actionTypes.INITIALIZE}), 5000);
+		history.push('/');
 	} catch (err) {
-		console.log(err);
+		dispatch({
+			type: actionTypes.ERROR,
+			payload: 'Could not delete stream. Please try later.'
+		});
+		dispatch({type: actionTypes.STOP_LOADING});
+		setTimeout(() => dispatch({type: actionTypes.INITIALIZE}), 5000);
+		history.push('/');
 	}
 };

@@ -10,7 +10,6 @@ import {
 export default (state = {}, action) => {
 	switch (action.type) {
 		case FETCH_STREAMS:
-			console.log('Fetching streams');
 			return action.payload.reduce(
 				(newState, stream) => {
 					newState[stream.id] = stream;
