@@ -2,13 +2,16 @@
 .stream {
 	width: 95%;
 	margin: 0 auto;
+	margin-bottom: 1rem;
 	padding: .5rem;
 	box-shadow: $box-shadow-2;
 	border-radius: $div-border-radius;
 	background-color: $color-white;
 	&__video {
-		background-color: $color-3;
-		min-height: 20rem;
+		width: 100%;
+		video {
+			width: 100%;
+		}
 	}
 	&__details {
 		padding: 1rem .5rem;
